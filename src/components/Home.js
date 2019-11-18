@@ -4,27 +4,24 @@ import { Link } from 'react-router-dom';
 class Home extends Component {
     state = {
         posts: [],
-        users: [],
-        author: {}
+        users: []
     };
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(res => res.json())
-        .then(posts => {
-            this.setState({posts})
-            console.log(posts)
-        });
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
         .then(users => {
             this.setState({users})
             console.log(users)
         });
+        fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(res => res.json())
+        .then(posts => {
+            this.setState({posts})
+            console.log(posts);
+        });
+        
     }
-    author(id) {
-        const author = this.state.users.filter(user => user.id === id )
-
-    }
+ 
     render() {
         return (
             <div className="container">
