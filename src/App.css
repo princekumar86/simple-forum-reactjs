@@ -42,3 +42,7 @@ li {
 .user-profile {
   line-height: 1.8em;
 }
+.author-name {
+  color: rgb(1, 122, 131);
+  font-weight: bold;
+}
