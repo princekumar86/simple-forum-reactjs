@@ -2,17 +2,16 @@ import React, { Component } from 'react'
 
 class UserProfile extends Component {
     state = {
-        user : {}
+        user : {},
+        error: ''
     }
     componentDidMount() {
         fetch(`https://jsonplaceholder.typicode.com/users/${this.props.match.params.id}`)
             .then(res => res.json())
             .then( user => {
-                
-                this.setState({
-                    user
-            })
+                this.setState({ user })
         })
+        .catch(error => this.setState({ error })); 
     }
     
 

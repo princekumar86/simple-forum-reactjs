@@ -16,7 +16,7 @@
   margin: 0 auto;
 }
 .full-post-body {
-  width: 60%;
+  width: 90%;
 }
 li {
   list-style: none;
@@ -45,4 +45,16 @@ li {
 .author-name {
   color: rgb(1, 122, 131);
   font-weight: bold;
+}
+.md-col-8 {
+  width: 74%;
+  float: left;
+}
+.md-col-4 {
+  width: 20%;
+  float: left;
+  
+}
+.search-input {
+  font-size: 21px;
 }

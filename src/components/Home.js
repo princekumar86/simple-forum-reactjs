@@ -5,21 +5,16 @@ import AuthorName from './AuthorName';
 class Home extends Component {
     state = {
         posts: [],
-        users: []
+        users: [],
+        error: {}
     };
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(res => res.json())
-        .then(users => {
-            this.setState({users})
-            console.log(users)
-        });
         fetch('https://jsonplaceholder.typicode.com/posts')
         .then(res => res.json())
         .then(posts => {
             this.setState({posts})
-            console.log(posts);
-        });
+        })
+        .catch(error => this.setState({ error })); 
         
     }
  

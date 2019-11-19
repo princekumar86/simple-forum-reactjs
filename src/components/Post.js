@@ -4,7 +4,8 @@ export default class Post extends Component {
     state = {
         post: [],
         comments: [],
-        author: {}
+        author: {},
+        error: {}
     }
     componentDidMount() {
         fetch(`https://jsonplaceholder.typicode.com/posts/${this.props.match.params.id}`)
@@ -18,7 +19,6 @@ export default class Post extends Component {
             fetch(`https://jsonplaceholder.typicode.com/users/${this.state.post.userId}`)
                 .then(res => res.json())
                 .then( author => {
-                    console.log(author);
                     this.setState({
                         author
                     })
@@ -28,11 +28,11 @@ export default class Post extends Component {
         fetch(`https://jsonplaceholder.typicode.com/posts/${this.props.match.params.id}/comments`)
             .then(res => res.json())
             .then( comments => {
-                console.log(comments);
                 this.setState({
                     comments
             })
         })
+        .catch(error => this.setState({ error })); 
         
     }
     render() {
